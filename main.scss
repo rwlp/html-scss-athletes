@@ -1,1 +1,137 @@
+.container {
+  position: relative;
+}
 
+.people{
+  padding: 30px 35px;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  gap: 30px 40px;
+  justify-content: center;
+
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(4, 200px);
+  }
+}
+
+.person{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  transition: all 1s linear;
+
+  &:hover {
+    position: absolute;
+    z-index: 1;
+    transform: scale(1.2);
+    background-color: #eeeeee;
+    border-radius: 10px;
+  }
+
+  &:hover &__section &__photo {
+    transform: scale(0.833);
+    animation: photoInHover 1s linear forwards;
+  }
+
+  &:hover &__details {
+    transform: scale(0.833);
+  }
+
+  &:hover &__rank {
+    left: 138px;
+  }
+
+  &:not(:hover) {
+    transform: scale(1);
+    background-color: #fff;
+  }
+
+  &:not(:hover) &__section {
+    transform: scale(1);
+  }
+
+  &:not(:hover) &__section &__photo {
+    animation: photoOutHover 1s linear forwards;
+  }
+
+  &__section {
+    width: 200px;
+    height: 200px;
+    background-color: transparent;
+  }
+
+  &__photo{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 50%;
+  }
+
+  &__rank{
+    width: 32px;
+    height: 32px;
+    display: block;
+    position: relative;
+    top: -116px;
+    left: 158px;
+    background-color: #fff;
+    border-radius: 50%;
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #8B0000;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    transition: all 1s linear;
+  }
+
+  &__name {
+    font-family: Arial;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #2F4F4F;
+    background-color: transparent;
+  }
+
+  &__extra {
+    font-family: Arial;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000;
+    display: none;
+  }
+
+  &:hover &__extra {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+@keyframes photoInHover {
+  100% {
+    border-radius: 60px;
+  }
+}
+
+@keyframes photoOutHover {
+  0% {
+    border-radius: 60px;
+  }
+  100% {
+    border-radius: 200px;
+  }
+}
