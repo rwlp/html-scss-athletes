@@ -1,0 +1,141 @@
+.container {
+  position: relative;
+}
+
+.people {
+  grid-template-columns: repeat(2, 200px);
+  justify-content: center;
+  gap: 30px 40px;
+  padding: 30px 35px;
+  display: grid;
+}
+
+@media (width >= 1000px) {
+  .people {
+    grid-template-columns: repeat(4, 200px);
+  }
+}
+
+.person {
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  transition: all 1s linear;
+  display: flex;
+}
+
+.person:hover {
+  z-index: 1;
+  background-color: #eee;
+  border-radius: 10px;
+  position: absolute;
+  transform: scale(1.2);
+}
+
+.person:hover .person__section .person__photo {
+  animation: 1s linear forwards photoInHover;
+  transform: scale(.833);
+}
+
+.person:hover .person__details {
+  transform: scale(.833);
+}
+
+.person:hover .person__rank {
+  left: 138px;
+}
+
+.person:not(:hover) {
+  background-color: #fff;
+  transform: scale(1);
+}
+
+.person:not(:hover) .person__section {
+  transform: scale(1);
+}
+
+.person:not(:hover) .person__section .person__photo {
+  animation: 1s linear forwards photoOutHover;
+}
+
+.person__section {
+  background-color: #0000;
+  width: 200px;
+  height: 200px;
+}
+
+.person__photo {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.person__rank {
+  letter-spacing: 0;
+  text-align: center;
+  color: #8b0000;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-family: Arial;
+  font-size: 16px;
+  line-height: 32px;
+  display: block;
+  position: relative;
+  top: -116px;
+  left: 158px;
+}
+
+.person__details {
+  background-color: #0000;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: all 1s linear;
+  display: flex;
+}
+
+.person__name {
+  letter-spacing: 0;
+  text-align: center;
+  color: #2f4f4f;
+  background-color: #0000;
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.person__extra {
+  letter-spacing: 0;
+  text-align: center;
+  color: #000;
+  font-family: Arial;
+  font-size: 18px;
+  line-height: 21px;
+  display: none;
+}
+
+.person:hover .person__extra {
+  margin-bottom: 20px;
+  display: block;
+}
+
+@keyframes photoInHover {
+  100% {
+    border-radius: 60px;
+  }
+}
+
+@keyframes photoOutHover {
+  0% {
+    border-radius: 60px;
+  }
+
+  100% {
+    border-radius: 200px;
+  }
+}
+/*# sourceMappingURL=index.b1276d39.css.map */
